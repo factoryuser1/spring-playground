@@ -3,7 +3,6 @@ package com.example.demo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -13,29 +12,17 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(HelloController.class)
-public class HelloControllerTest {
-
+@WebMvcTest
+public class testPiController {
     @Autowired
     private MockMvc mvc;
 
     @Test
-    public void testHelloControllerText() throws Exception {
-        RequestBuilder request = MockMvcRequestBuilders.get("/");
+    public void testReturningPiValueWithGetMethod() throws Exception {
+        RequestBuilder request = MockMvcRequestBuilders.get("/math/pi");
 
         this.mvc.perform(request)
                 .andExpect(status().isOk())
-                .andExpect(content().string("Hello Spring Ammar Test 2"));
+                .andExpect(content().string("3.141592653589793"));
     }
-
-    @Test
-    public void testHelloControllerPost() throws Exception {
-        this.mvc.perform(post("/messages")).andExpect(status().isOk()).andExpect(content().string("POST to messages route"));
-    }
-
-    @Test
-    public void testHelloControllerGetMediaType() throws Exception {
-        this.mvc.perform(get("/some-route").accept(MediaType.APPLICATION_JSON));
-    }
-
 }
