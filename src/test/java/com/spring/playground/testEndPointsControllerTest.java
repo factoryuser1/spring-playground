@@ -13,31 +13,31 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(EndPointsController.class)
 public class testEndPointsControllerTest {
-
-    @Autowired
-    private MockMvc mvc;
-
-    @Test
-    public void
-    testIndexEndpoint() throws Exception {
-        this.mvc.perform(get("/vehicles?year=1987&doors=2"))
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    public void testIndexEndPointVehicle() throws Exception{
-        //use String concatentation / string formatting to insert dynamic path segments to send as a request
-        int driverId = 4;
-
-        this.mvc.perform(get(String.format("/drivers/%d/trips", driverId)))
-                .andExpect(status().isOk());
-    }
-    @Test
-    public void testURLEncoderPostMethod() throws Exception{
-        MockHttpServletRequestBuilder request = post("/comments")
-                .contentType(MediaType.APPLICATION_FORM_URLENCODED)
-                .param("content", "Firsties!")
-                .param("Author", "Dwayne");
-    }
+//
+//    @Autowired
+//    private MockMvc mvc;
+//
+//    @Test
+//    public void
+//    testIndexEndpoint() throws Exception {
+//        this.mvc.perform(get("/vehicles?year=1987&doors=2"))
+//                .andExpect(status().isOk());
+//    }
+//
+//    @Test
+//    public void testIndexEndPointVehicle() throws Exception{
+//        //use String concatentation / string formatting to insert dynamic path segments to send as a request
+//        int driverId = 4;
+//
+//        this.mvc.perform(get(String.format("/drivers/%d/trips", driverId)))
+//                .andExpect(status().isOk());
+//    }
+//    @Test
+//    public void testURLEncoderPostMethod() throws Exception{
+//        MockHttpServletRequestBuilder request = post("/comments")
+//                .contentType(MediaType.APPLICATION_FORM_URLENCODED)
+//                .param("content", "Firsties!")
+//                .param("Author", "Dwayne");
+//    }
 
 }
