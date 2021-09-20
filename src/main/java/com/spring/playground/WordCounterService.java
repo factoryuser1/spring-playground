@@ -1,4 +1,4 @@
-package com.wordCount;
+package com.spring.playground;
 
 import org.springframework.stereotype.Service;
 
@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 //this is a Service class
-@Service
+
 public class WordCounterService {
 
     public Map<String, Integer> count(String message){

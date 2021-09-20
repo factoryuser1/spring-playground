@@ -1,4 +1,4 @@
-package com.wordCount;
+package com.spring.playground;
 
 public class WordCounterTest {
 }
